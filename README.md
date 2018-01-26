@@ -1,0 +1,1 @@
+# mackerel-metrics-collect-agent
