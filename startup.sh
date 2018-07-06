@@ -7,5 +7,6 @@ done
 export PATH=$PATH:/opt/mackerel-agent/plugins/bin
 
 conf=/etc/mackerel-agent/mackerel-metrics-collect-agent.conf
-s3cmd get "${CONF_S3_URI}" "${conf}"
+mkdir -p "$(dirname "${conf}")"
+s3get "${CONF_S3_URI}" > "${conf}"
 exec mackerel-metrics-collect-agent -conf "${conf}"
